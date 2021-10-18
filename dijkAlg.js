@@ -2,8 +2,6 @@ var jsgraphs = require("js-graph-algorithms");
 
 var g = new jsgraphs.WeightedGraph(7); // 7 = The no. of nodes in the graph
 
-
-
 //node U
 // g.addEdge("U", "A");
 // g.addEdge("U", "C");
@@ -78,17 +76,15 @@ var dijkstra = new jsgraphs.Dijkstra(g, 0);
 // idette tilfølde er g.V = 7, antal noder i denne graf
  
 for(var v = 1; v < g.V; ++v){
-    if(dijkstra.hasPathTo(v= 6)){
+    if(dijkstra.hasPathTo(v = 6)){ // v = 6, da end-node er V
         var path = dijkstra.pathTo(v);
-        console.log('Shortest path from ' + g.node(0).label+ ' to ' + g.node(6).label );
+        console.log('Shortest path from ' + g.node(0).label + ' to ' + g.node(v).label );
         for(var i = 0; i < path.length; ++i) {
             var e = path[i];
-            
             console.log(g.node(e.from()).label+ ' => ' + e.to() + ': ' + e.weight);
-        }
+        };
         console.log('=====path from 0 to ' + v + ' end==========');
         console.log('=====distance: '  + dijkstra.distanceTo(v) + '=========');
-    }
-}
- console.log()
+    };
+};
 
